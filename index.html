@@ -5,235 +5,475 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Tools Store - ChatGPT / Claude / Manus 官方渠道低价充值</title>
 <meta name="description" content="ChatGPT Plus、Claude Pro、Manus Pro 官方渠道充值，正规安全，价格优惠。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0a0a0f;--card:#12121a;--border:#1e1e2e;--text:#e2e8f0;--muted:#64748b;--accent:#f59e0b;--green:#22c55e;--red:#ef4444;--blue:#3b82f6;--purple:#7c3aed}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:#fafafa;color:#1a1a1a;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
 
-/* Hero */
-.hero{text-align:center;padding:60px 20px 40px;background:linear-gradient(180deg,#0f0f1a 0%,var(--bg) 100%)}
-.hero-badge{display:inline-block;background:rgba(245,158,11,0.12);color:var(--accent);padding:8px 20px;border-radius:20px;font-size:14px;font-weight:600;border:1px solid rgba(245,158,11,0.25);margin-bottom:24px}
-.hero h1{font-size:clamp(28px,5vw,42px);font-weight:800;line-height:1.3;margin-bottom:12px}
-.hero h1 span{color:var(--accent)}
-.hero p{font-size:18px;color:var(--muted);max-width:500px;margin:0 auto}
+/* ── Nav ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(250,250,250,.88);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);transition:all .3s}
+.nav-logo{font-size:18px;font-weight:800;color:#000;display:flex;align-items:center;gap:8px}
+.nav-logo .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#0d99ff,#a259ff)}
+.nav-links{display:flex;gap:24px;align-items:center;font-size:14px;font-weight:500;color:#888}
+.nav-links a:hover{color:#000}
+.nav-cta{background:#000;color:#fff!important;padding:8px 20px;border-radius:8px;font-weight:600;transition:all .2s}
+.nav-cta:hover{background:#222;transform:translateY(-1px)}
+@media(max-width:600px){.nav-links{display:none}}
 
-/* Trust */
-.trust{display:flex;justify-content:center;gap:30px;padding:20px;flex-wrap:wrap}
-.trust-item{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)}
-.trust-dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+/* ── Hero ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 24px 80px;background:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;width:1000px;height:1000px;background:radial-gradient(circle,rgba(13,153,255,.04) 0%,transparent 60%);top:-300px;right:-300px;pointer-events:none}
+.hero::after{content:'';position:absolute;width:800px;height:800px;background:radial-gradient(circle,rgba(162,89,255,.03) 0%,transparent 60%);bottom:-200px;left:-200px;pointer-events:none}
 
-/* Products */
-.products{max-width:900px;margin:0 auto;padding:20px;display:flex;flex-direction:column;gap:20px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#f0f7ff;border:1px solid #d4e8ff;padding:8px 18px;border-radius:99px;font-size:13px;font-weight:600;color:#0d6efd;margin-bottom:28px;animation:fadeUp .6s ease}
+.hero-eyebrow .live{width:6px;height:6px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
-.product-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform 0.2s,border-color 0.2s}
-.product-card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.1)}
-.product-card.featured{border-color:var(--accent);position:relative}
-.product-card.featured::before{content:"HOT";position:absolute;top:16px;right:16px;background:var(--accent);color:#000;font-size:12px;font-weight:800;padding:4px 10px;border-radius:6px;z-index:1}
+.hero h1{font-size:clamp(48px,9vw,96px);font-weight:900;line-height:.95;letter-spacing:-4px;max-width:800px;color:#000;animation:fadeUp .6s ease .05s both}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,#0d99ff,#a259ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:clamp(17px,2.5vw,22px);color:#888;max-width:500px;margin:28px auto 0;line-height:1.6;animation:fadeUp .6s ease .1s both}
+.hero-actions{display:flex;gap:12px;margin-top:40px;animation:fadeUp .6s ease .15s both}
+.btn-dark{background:#000;color:#fff;padding:16px 36px;border-radius:14px;font-size:16px;font-weight:700;transition:all .25s;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.btn-dark:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
+.btn-ghost{background:transparent;color:#000;padding:16px 36px;border-radius:14px;font-size:16px;font-weight:600;border:1px solid #ddd;transition:all .25s}
+.btn-ghost:hover{border-color:#aaa;background:#f5f5f5}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
-.card-inner{display:flex;align-items:center;padding:24px 28px;gap:24px}
-@media(max-width:600px){.card-inner{flex-direction:column;text-align:center}}
+/* ── Stats Bar ── */
+.stats-bar{display:flex;justify-content:center;gap:60px;padding:40px 24px;background:#fff;border-bottom:1px solid #eee}
+@media(max-width:600px){.stats-bar{gap:24px;flex-wrap:wrap}}
+.stat{text-align:center}
+.stat .num{font-size:32px;font-weight:900;color:#000}
+.stat .label{font-size:13px;color:#aaa;margin-top:2px;font-weight:500}
 
-.card-icon{width:72px;height:72px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0}
-.card-icon.gpt{background:linear-gradient(135deg,#10a37f,#0d8c6d)}
-.card-icon.claude{background:linear-gradient(135deg,#d97706,#b45309)}
-.card-icon.manus{background:linear-gradient(135deg,#7c3aed,#6d28d9)}
+/* ── Marquee ── */
+.marquee{padding:28px 0;border-bottom:1px solid #eee;overflow:hidden;position:relative;background:#fff}
+.marquee::before,.marquee::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2}
+.marquee::before{left:0;background:linear-gradient(90deg,#fff,transparent)}
+.marquee::after{right:0;background:linear-gradient(270deg,#fff,transparent)}
+.marquee-track{display:flex;gap:56px;align-items:center;animation:scroll 25s linear infinite;width:max-content}
+.marquee-track span{font-size:15px;font-weight:700;color:#d4d4d4;white-space:nowrap;letter-spacing:-.3px}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-.card-info{flex:1}
-.card-info h3{font-size:22px;font-weight:700;margin-bottom:4px}
-.card-info .desc{font-size:14px;color:var(--muted);margin-bottom:8px}
-.card-info .features{display:flex;flex-wrap:wrap;gap:6px}
-.card-info .features span{background:rgba(255,255,255,0.05);padding:4px 10px;border-radius:6px;font-size:12px;color:#94a3b8}
+/* ── Section ── */
+section{padding:100px 24px}
+.section-label{font-size:13px;font-weight:700;color:#0d99ff;text-align:center;margin-bottom:8px;letter-spacing:2px;text-transform:uppercase}
+.section-title{font-size:clamp(32px,5vw,52px);font-weight:900;text-align:center;letter-spacing:-1.5px;line-height:1.1;color:#000}
+.section-desc{font-size:17px;color:#999;text-align:center;max-width:480px;margin:16px auto 60px;line-height:1.7}
 
-.card-price{text-align:right;min-width:140px}
-@media(max-width:600px){.card-price{text-align:center}}
-.card-price .original{font-size:16px;color:var(--muted);text-decoration:line-through;margin-bottom:2px}
-.card-price .current{font-size:36px;font-weight:900;color:var(--green)}
-.card-price .current small{font-size:18px;font-weight:400;color:var(--muted)}
-.card-price .save{font-size:13px;color:var(--accent);margin-top:4px;font-weight:600}
-.card-price .btn{display:inline-block;margin-top:12px;background:linear-gradient(135deg,var(--accent),#d97706);color:#000;font-weight:700;font-size:15px;padding:10px 28px;border-radius:10px;cursor:pointer;transition:opacity 0.2s}
-.card-price .btn:hover{opacity:0.9}
+/* ── Product Showcase ── */
+.showcase{max-width:1100px;margin:0 auto}
+.product-block{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:2px;background:#fff;border-radius:24px;overflow:hidden;border:1px solid #eee;transition:all .4s}
+.product-block:hover{box-shadow:0 20px 60px -12px rgba(0,0,0,.06);transform:translateY(-3px)}
+@media(max-width:800px){.product-block{grid-template-columns:1fr}}
 
-/* FAQ */
-.faq{max-width:700px;margin:40px auto;padding:20px}
-.faq h2{font-size:24px;font-weight:700;text-align:center;margin-bottom:24px}
-.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
-.faq-q{font-size:16px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
-.faq-q::after{content:"+";font-size:20px;color:var(--muted);transition:transform 0.2s}
-.faq-item.open .faq-q::after{transform:rotate(45deg)}
-.faq-a{font-size:14px;color:var(--muted);line-height:1.7;max-height:0;overflow:hidden;transition:max-height 0.3s,padding 0.3s}
-.faq-item.open .faq-a{max-height:200px;padding-top:12px}
+.product-img{position:relative;overflow:hidden;min-height:320px;background:#f5f5f5;display:flex;align-items:center;justify-content:center}
+.product-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.product-block:hover .product-img img{transform:scale(1.03)}
+.product-img .badge{position:absolute;top:16px;left:16px;background:#000;color:#fff;font-size:11px;font-weight:700;padding:6px 14px;border-radius:8px;letter-spacing:.5px}
 
-/* Footer */
-.footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;border-top:1px solid var(--border);margin-top:20px}
+.product-info{padding:40px;display:flex;flex-direction:column;justify-content:center}
+.product-info .brand{font-size:12px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.product-info h3{font-size:28px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px}
+.product-info .desc{font-size:14px;color:#888;line-height:1.6;margin-bottom:20px}
+.product-info .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px}
+.product-info .tags span{background:#f5f5f5;border:1px solid #eee;padding:5px 12px;border-radius:8px;font-size:12px;color:#666;font-weight:500}
 
-/* Process */
-.process{max-width:700px;margin:30px auto;padding:20px}
-.process h2{font-size:24px;font-weight:700;text-align:center;margin-bottom:24px}
-.steps{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.step{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center;flex:1;min-width:140px}
-.step-num{width:36px;height:36px;border-radius:50%;background:var(--accent);color:#000;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
-.step-title{font-size:15px;font-weight:600;margin-bottom:4px}
-.step-desc{font-size:12px;color:var(--muted)}
+/* ── Price Compare Block ── */
+.price-compare{background:#f9f9f9;border-radius:16px;padding:24px;margin-bottom:24px;border:1px solid #eee}
+.price-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0}
+.price-row.old .label{font-size:14px;color:#bbb}
+.price-row.old .val{font-size:18px;color:#bbb;text-decoration:line-through;font-weight:600}
+.price-row.new{border-top:2px dashed #e0e0e0;padding-top:12px;margin-top:4px}
+.price-row.new .label{font-size:16px;color:#000;font-weight:700}
+.price-row.new .val{font-size:36px;font-weight:900;color:#000}
+.price-row.new .val small{font-size:14px;font-weight:500;color:#999}
+.price-save{display:flex;justify-content:center;margin-top:12px}
+.price-save span{background:linear-gradient(135deg,#dcfce7,#bbf7d0);color:#16a34a;font-size:14px;font-weight:700;padding:8px 20px;border-radius:99px}
+
+.product-btn{display:block;background:#000;color:#fff;padding:16px;border-radius:14px;font-size:16px;font-weight:700;text-align:center;transition:all .25s}
+.product-btn:hover{background:#1a1a1a;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+
+/* alt row reverse */
+.product-block.alt{direction:rtl}
+.product-block.alt > *{direction:ltr}
+
+/* ── Official Price Card (replaces screenshots) ── */
+.official-card{background:#fff;padding:32px 28px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-height:340px;border-right:1px solid #eee}
+.product-block.alt .official-card{border-right:none;border-left:1px solid #eee}
+.oc-logo{font-size:13px;font-weight:700;color:#999;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.oc-logo svg{width:20px;height:20px}
+.oc-plan{font-size:28px;font-weight:800;color:#000;margin-bottom:4px}
+.oc-subtitle{font-size:14px;color:#888;margin-bottom:16px}
+.oc-price{display:flex;align-items:baseline;gap:4px;margin-bottom:6px}
+.oc-price .amt{font-size:52px;font-weight:900;color:#000;line-height:1}
+.oc-price .per{font-size:15px;color:#888;font-weight:500}
+.oc-note{font-size:12px;color:#aaa;margin-bottom:20px}
+.oc-btn{background:#000;color:#fff;padding:12px 0;border-radius:99px;font-size:14px;font-weight:700;text-align:center;width:100%;margin-bottom:20px}
+.oc-features{list-style:none;padding:0;width:100%}
+.oc-features li{font-size:13px;color:#555;padding:6px 0;display:flex;align-items:flex-start;gap:8px;line-height:1.4}
+.oc-features li::before{content:"\2713";color:#000;font-weight:700;flex-shrink:0;margin-top:1px}
+.oc-divider{width:100%;height:1px;background:#eee;margin:12px 0}
+.oc-section-title{font-size:13px;font-weight:700;color:#000;margin-bottom:8px}
+
+/* OpenRouter specific */
+.or-table{width:100%;border-collapse:collapse;font-size:13px}
+.or-table th{text-align:left;font-weight:700;color:#000;padding:10px 8px;border-bottom:1px solid #eee}
+.or-table th.highlight{background:rgba(99,102,241,.08);color:#6366f1}
+.or-table td{padding:10px 8px;color:#666;border-bottom:1px solid #f5f5f5}
+.or-table td.highlight{background:rgba(99,102,241,.04)}
+
+/* ── Steps ── */
+.steps-section{background:#fff;border-radius:24px;max-width:1100px;margin:0 auto;padding:60px 40px;border:1px solid #eee}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+@media(max-width:700px){.steps{grid-template-columns:repeat(2,1fr)}}
+.step{text-align:center}
+.step-num{width:52px;height:52px;border-radius:50%;background:#000;color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.step h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.step p{font-size:13px;color:#999;line-height:1.5}
+
+/* ── Features ── */
+.features-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:700px){.features-grid{grid-template-columns:1fr}}
+.feature{padding:32px;border-radius:20px;background:#fff;border:1px solid #eee;transition:all .3s}
+.feature:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.04);border-color:#ddd}
+.feature-icon{font-size:32px;margin-bottom:14px}
+.feature h4{font-size:16px;font-weight:700;margin-bottom:6px}
+.feature p{font-size:13px;color:#999;line-height:1.7}
+
+/* ── FAQ ── */
+.faq-list{max-width:640px;margin:0 auto}
+.faq-item{border-bottom:1px solid #eee}
+.faq-q{padding:20px 0;font-size:15px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:color .2s}
+.faq-q:hover{color:#0d99ff}
+.faq-q .icon{width:28px;height:28px;border-radius:50%;background:#f5f5f5;display:flex;align-items:center;justify-content:center;font-size:16px;color:#999;transition:all .3s;flex-shrink:0}
+.faq-item.open .faq-q .icon{background:#0d99ff;color:#fff;transform:rotate(45deg)}
+.faq-a{font-size:14px;color:#888;line-height:1.8;max-height:0;overflow:hidden;transition:all .4s}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:20px}
+
+/* ── CTA ── */
+.cta{background:#000;color:#fff;text-align:center;padding:80px 24px;border-radius:24px;max-width:1100px;margin:0 auto 60px;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(13,153,255,.12),transparent 60%);top:-200px;right:-100px;pointer-events:none}
+.cta h2{font-size:clamp(32px,5vw,52px);font-weight:900;letter-spacing:-1.5px;margin-bottom:12px;position:relative}
+.cta p{font-size:18px;color:#666;margin-bottom:36px;position:relative}
+.cta .btn-blue{background:linear-gradient(135deg,#0d99ff,#0070cc);color:#fff;padding:18px 44px;border-radius:14px;font-size:17px;font-weight:700;display:inline-block;transition:all .3s;position:relative;box-shadow:0 4px 20px rgba(13,153,255,.3)}
+.cta .btn-blue:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(13,153,255,.4)}
+
+/* ── Footer ── */
+footer{text-align:center;padding:32px 24px;color:#ccc;font-size:13px}
+
+/* ── Animations ── */
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.05s}.rd2{transition-delay:.1s}.rd3{transition-delay:.15s}
 </style>
 </head>
 <body>
 
+<!-- Nav -->
+<nav>
+  <div class="nav-logo"><span class="dot"></span>AI Tools Store</div>
+  <div class="nav-links">
+    <a href="#products">Products</a>
+    <a href="#how">How it works</a>
+    <a href="#faq">FAQ</a>
+    <a href="#products" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
 <!-- Hero -->
 <section class="hero">
-  <div class="hero-badge">Official Recharge Channel</div>
-  <h1>AI Tools <span>Low Price</span> Store</h1>
-  <p>ChatGPT / Claude / Manus 官方渠道充值，安全正规，价格低至 5 折</p>
+  <div class="hero-eyebrow"><span class="live"></span>Official Recharge &middot; Open Now</div>
+  <h1>AI Tools,<br><em>half the price.</em></h1>
+  <p class="sub">ChatGPT Pro / Claude Pro / Manus / OpenRouter API<br>官方渠道充值 &middot; 正规安全 &middot; 即买即用</p>
+  <div class="hero-actions">
+    <a href="#products" class="btn-dark">Browse Products</a>
+    <a href="#how" class="btn-ghost">How it works</a>
+  </div>
 </section>
 
-<!-- Trust Signals -->
-<div class="trust">
-  <div class="trust-item"><div class="trust-dot"></div>官方正规充值</div>
-  <div class="trust-item"><div class="trust-dot"></div>即买即用</div>
-  <div class="trust-item"><div class="trust-dot"></div>售后保障</div>
-  <div class="trust-item"><div class="trust-dot"></div>已服务 500+ 用户</div>
+<!-- Stats -->
+<div class="stats-bar">
+  <div class="stat reveal"><div class="num">500+</div><div class="label">Customers served</div></div>
+  <div class="stat reveal"><div class="num">5 min</div><div class="label">Avg. delivery</div></div>
+  <div class="stat reveal"><div class="num">50%</div><div class="label">Avg. savings</div></div>
+  <div class="stat reveal"><div class="num">100%</div><div class="label">Refund guarantee</div></div>
+</div>
+
+<!-- Marquee -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>ChatGPT Pro</span><span>Claude Pro</span><span>Manus</span><span>OpenRouter API</span><span>GPT-5.4</span><span>Opus 4.6</span><span>Gemini 3.1</span><span>DeepSeek</span><span>300+ Models</span><span>AI Agent</span>
+    <span>ChatGPT Pro</span><span>Claude Pro</span><span>Manus</span><span>OpenRouter API</span><span>GPT-5.4</span><span>Opus 4.6</span><span>Gemini 3.1</span><span>DeepSeek</span><span>300+ Models</span><span>AI Agent</span>
+  </div>
 </div>
 
 <!-- Products -->
-<section class="products">
+<section id="products">
+  <div class="section-label reveal">Products</div>
+  <div class="section-title reveal">Choose your AI stack</div>
+  <div class="section-desc reveal">同样的工具，更聪明的价格。</div>
 
-  <!-- ChatGPT Plus -->
-  <div class="product-card featured">
-    <div class="card-inner">
-      <div class="card-icon gpt">G</div>
-      <div class="card-info">
+  <div class="showcase">
+    <!-- ChatGPT Pro -->
+    <div class="product-block reveal">
+      <div class="official-card">
+        <div class="oc-logo"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="#000" stroke-width="1.5"/><path d="M12 7v5l3 3" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"/></svg> ChatGPT</div>
+        <div class="oc-plan">Pro</div>
+        <div class="oc-subtitle">Full access to the best of ChatGPT</div>
+        <div class="oc-price"><span class="amt">$200</span><span class="per">/ month</span></div>
+        <div class="oc-btn">Get Pro</div>
+        <div class="oc-section-title">Everything in Plus and:</div>
+        <ul class="oc-features">
+          <li>Pro reasoning with GPT-5.4 Pro</li>
+          <li>Unlimited GPT-5.4 and file uploads</li>
+          <li>Unlimited and faster image creation</li>
+          <li>Maximum deep research and agent mode</li>
+          <li>Maximum memory and context</li>
+          <li>Expanded projects, tasks, and custom GPTs</li>
+        </ul>
+      </div>
+      <div class="product-info">
+        <div class="brand">OpenAI</div>
+        <h3>ChatGPT Pro</h3>
+        <div class="desc">GPT-5.4 Pro 专业推理、无限制文件上传、最快图片生成、深度研究与 Agent 模式、Sora 视频高级权限、Codex 高级智能体。</div>
+        <div class="tags"><span>GPT-5.4 Pro</span><span>Unlimited Upload</span><span>Sora Video</span><span>Codex Agent</span><span>Deep Research</span></div>
+        <div class="price-compare">
+          <div class="price-row old"><span class="label">官方原价</span><span class="val">$200/月 (~¥1,450)</span></div>
+          <div class="price-row new"><span class="label">我们的价格</span><span class="val">¥998<small>/月</small></span></div>
+          <div class="price-save"><span>直省 ¥452/月 &middot; 低至 6.9 折</span></div>
+        </div>
+        <a class="product-btn" href="https://item.taobao.com" target="_blank" rel="noopener">Get ChatGPT Pro &rarr;</a>
+      </div>
+    </div>
+
+    <!-- ChatGPT Plus $20 -->
+    <div class="product-block alt reveal" style="margin-top:20px">
+      <div class="official-card">
+        <div class="oc-logo"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="#000" stroke-width="1.5"/><path d="M12 7v5l3 3" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"/></svg> ChatGPT</div>
+        <div class="oc-plan">Plus</div>
+        <div class="oc-subtitle">Do more with advanced intelligence</div>
+        <div class="oc-price"><span class="amt">$20</span><span class="per">/ month</span></div>
+        <div class="oc-btn">Get Plus</div>
+        <div class="oc-section-title">Everything in Go and:</div>
+        <ul class="oc-features">
+          <li>Advanced reasoning models</li>
+          <li>Expanded messages and uploads</li>
+          <li>Expanded and faster image creation</li>
+          <li>Expanded deep research and agent mode</li>
+          <li>Memory and context</li>
+          <li>Projects, tasks and custom GPTs</li>
+          <li>Codex and Sora video</li>
+        </ul>
+      </div>
+      <div class="product-info">
+        <div class="brand">OpenAI</div>
         <h3>ChatGPT Plus</h3>
-        <div class="desc">OpenAI 官方会员 | GPT-4o / GPT-5 全模型 | 1个月</div>
-        <div class="features">
-          <span>GPT-5 无限制</span>
-          <span>代码解释器</span>
-          <span>文件分析</span>
-          <span>DALL-E 绘图</span>
-          <span>高峰期优先</span>
+        <div class="desc">GPT-5 高级推理模型、扩展消息与上传、更快图片生成、深度研究与 Agent 模式、Sora 视频、Codex 智能体。</div>
+        <div class="tags"><span>GPT-5</span><span>Deep Research</span><span>Agent Mode</span><span>Sora Video</span><span>Codex</span></div>
+        <div class="price-compare">
+          <div class="price-row old"><span class="label">官方原价</span><span class="val">$20/月 (~¥145)</span></div>
+          <div class="price-row new"><span class="label">我们的价格</span><span class="val">¥100<small>/月</small></span></div>
+          <div class="price-save"><span>每月省 ¥45 &middot; 年省 ¥540</span></div>
         </div>
-      </div>
-      <div class="card-price">
-        <div class="original">官方价 $20/月 (~¥145)</div>
-        <div class="current">¥100<small>/月</small></div>
-        <div class="save">省 ¥45/月</div>
-        <a class="btn" href="https://item.taobao.com" target="_blank" rel="noopener">立即购买</a>
+        <a class="product-btn" href="https://item.taobao.com" target="_blank" rel="noopener">Get ChatGPT Plus &rarr;</a>
       </div>
     </div>
-  </div>
 
-  <!-- Claude Pro -->
-  <div class="product-card featured">
-    <div class="card-inner">
-      <div class="card-icon claude">C</div>
-      <div class="card-info">
+    <!-- Claude Pro -->
+    <div class="product-block alt reveal" style="margin-top:20px">
+      <div class="official-card">
+        <div class="oc-logo"><svg viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><circle cx="12" cy="6" r="2"/><circle cx="7" cy="14" r="2"/><circle cx="17" cy="14" r="2"/><circle cx="12" cy="20" r="2"/><line x1="12" y1="8" x2="7" y2="12"/><line x1="12" y1="8" x2="17" y2="12"/><line x1="7" y1="16" x2="12" y2="18"/><line x1="17" y1="16" x2="12" y2="18"/></svg> Claude</div>
+        <div class="oc-plan">Pro</div>
+        <div class="oc-subtitle">Research, code, and organize</div>
+        <div class="oc-price"><span class="amt">$20</span><span class="per">USD / month<br>billed monthly</span></div>
+        <div class="oc-btn">Downgrade to Pro</div>
+        <div class="oc-section-title">Everything in Free and:</div>
+        <ul class="oc-features">
+          <li>More usage*</li>
+          <li>Claude Code</li>
+          <li>Cowork</li>
+          <li>Unlimited projects</li>
+          <li>Access to Research</li>
+          <li>Memory across conversations</li>
+          <li>More Claude models</li>
+          <li>Claude in Excel</li>
+          <li>Claude in Chrome</li>
+        </ul>
+      </div>
+      <div class="product-info">
+        <div class="brand">Anthropic</div>
         <h3>Claude Pro</h3>
-        <div class="desc">Anthropic 官方会员 | Claude Opus 4.6 / Sonnet 4.5 | 1个月</div>
-        <div class="features">
-          <span>100万 Token 上下文</span>
-          <span>深度推理</span>
-          <span>代码生成</span>
-          <span>文档分析</span>
-          <span>优先访问</span>
+        <div class="desc">Opus 4.6 / Sonnet 4.5 全模型访问，100万 Token 超长上下文，深度推理，代码生成，文档分析。</div>
+        <div class="tags"><span>Opus 4.6</span><span>1M Context</span><span>Deep Reasoning</span><span>Code Gen</span><span>Doc Analysis</span></div>
+        <div class="price-compare">
+          <div class="price-row old"><span class="label">官方原价</span><span class="val">$20/月 (~¥145)</span></div>
+          <div class="price-row new"><span class="label">我们的价格</span><span class="val">¥100<small>/月</small></span></div>
+          <div class="price-save"><span>每月省 ¥45 &middot; 年省 ¥540</span></div>
         </div>
-      </div>
-      <div class="card-price">
-        <div class="original">官方价 $20/月 (~¥145)</div>
-        <div class="current">¥100<small>/月</small></div>
-        <div class="save">省 ¥45/月</div>
-        <a class="btn" href="https://item.taobao.com" target="_blank" rel="noopener">立即购买</a>
+        <a class="product-btn" href="https://item.taobao.com" target="_blank" rel="noopener">Get Claude Pro &rarr;</a>
       </div>
     </div>
-  </div>
 
-  <!-- Manus Pro -->
-  <div class="product-card">
-    <div class="card-inner">
-      <div class="card-icon manus">M</div>
-      <div class="card-info">
+    <!-- Manus -->
+    <div class="product-block reveal" style="margin-top:20px">
+      <div class="official-card">
+        <div class="oc-logo"><svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> Manus</div>
+        <div class="oc-plan" style="font-size:22px">可自定义月度用量</div>
+        <div class="oc-price"><span class="amt">$40</span><span class="per">/ 月</span></div>
+        <div class="oc-note">8,000 月度积分 &middot; 300 每日刷新积分</div>
+        <div class="oc-btn">开始体验</div>
+        <ul class="oc-features">
+          <li>自定义用量的深度研究</li>
+          <li>应对变化需求的专业网站</li>
+          <li>稳定创作的分析型幻灯片</li>
+          <li>广泛研究支持</li>
+          <li>抢先体验 Beta 功能</li>
+          <li>20 个并发任务</li>
+        </ul>
+      </div>
+      <div class="product-info">
+        <div class="brand">Manus (by Meta)</div>
+        <h3>Manus</h3>
+        <div class="desc">AI Agent 自动化平台，可自定义月度用量，全自动网页操控、代码执行、深度研究、专业网站生成、分析型幻灯片。</div>
+        <div class="tags"><span>AI Agent</span><span>Deep Research</span><span>Web Control</span><span>Code Exec</span><span>8000 Credits/mo</span></div>
+        <div class="price-compare">
+          <div class="price-row old"><span class="label">官方原价</span><span class="val">$40/月 (~¥290)</span></div>
+          <div class="price-row new"><span class="label">我们的价格</span><span class="val">¥160<small>/月</small></span></div>
+          <div class="price-save"><span>直省 ¥130/月 &middot; 低至 5.5 折</span></div>
+        </div>
+        <a class="product-btn" href="https://item.taobao.com" target="_blank" rel="noopener">Get Manus &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Manus Pro $200 -->
+    <div class="product-block alt reveal" style="margin-top:20px">
+      <div class="official-card">
+        <div class="oc-logo"><svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> Manus</div>
+        <div class="oc-plan">Pro</div>
+        <div class="oc-subtitle">可提升生产力的用量</div>
+        <div class="oc-price"><span class="amt">$200</span><span class="per">/ 月</span></div>
+        <div class="oc-note">40,000 月度积分 &middot; 300 每日刷新积分</div>
+        <div class="oc-btn">开始体验</div>
+        <ul class="oc-features">
+          <li>大规模任务的深度研究</li>
+          <li>具备数据分析的专业网站</li>
+          <li>批量制作的分析型幻灯片</li>
+          <li>持续高负荷的广泛研究</li>
+          <li>抢先体验 Beta 功能</li>
+          <li>20 个并发任务</li>
+        </ul>
+      </div>
+      <div class="product-info">
+        <div class="brand">Manus (by Meta)</div>
         <h3>Manus Pro</h3>
-        <div class="desc">AI Agent 自动化平台 | 全自动任务执行 | 含 $200 积分</div>
-        <div class="features">
-          <span>AI Agent 自动化</span>
-          <span>网页操控</span>
-          <span>代码执行</span>
-          <span>数据分析</span>
-          <span>报告生成</span>
+        <div class="desc">最高生产力套餐，40,000 月度积分，大规模深度研究、数据分析型网站、批量幻灯片制作、持续高负荷广泛研究。</div>
+        <div class="tags"><span>40K Credits/mo</span><span>Deep Research</span><span>Data Analysis</span><span>Batch Slides</span><span>Heavy Workload</span></div>
+        <div class="price-compare">
+          <div class="price-row old"><span class="label">官方原价</span><span class="val">$200/月 (~¥1,450)</span></div>
+          <div class="price-row new"><span class="label">我们的价格</span><span class="val">¥688<small>/月</small></span></div>
+          <div class="price-save"><span>直省 ¥762/月 &middot; 低至 4.7 折</span></div>
         </div>
+        <a class="product-btn" href="https://item.taobao.com" target="_blank" rel="noopener">Get Manus Pro &rarr;</a>
       </div>
-      <div class="card-price">
-        <div class="original">官方价 $200 (~¥1450)</div>
-        <div class="current">¥688</div>
-        <div class="save">省 ¥762</div>
-        <a class="btn" href="https://item.taobao.com" target="_blank" rel="noopener">立即购买</a>
+    </div>
+
+    <!-- OpenRouter API -->
+    <div class="product-block alt reveal" style="margin-top:20px">
+      <div class="official-card" style="padding:24px 20px">
+        <div class="oc-logo"><svg viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg> OpenRouter</div>
+        <div class="oc-plan" style="font-size:20px;margin-bottom:12px">Pricing</div>
+        <div class="oc-subtitle">Plans for indie hackers, AI native startups, and enterprises</div>
+        <table class="or-table">
+          <tr><th></th><th>Free</th><th class="highlight">Pay-as-you-go</th><th>Enterprise</th></tr>
+          <tr><td><b>Platform Fees</b></td><td>N/A</td><td class="highlight">5.5%</td><td>Bulk discounts</td></tr>
+          <tr><td><b>Models</b></td><td>25+ free</td><td class="highlight">300+</td><td>300+</td></tr>
+          <tr><td><b>Providers</b></td><td>4 free</td><td class="highlight">60+</td><td>60+</td></tr>
+          <tr><td><b>Chat & API</b></td><td>&#10004;</td><td class="highlight">&#10004;</td><td>&#10004;</td></tr>
+        </table>
+      </div>
+      <div class="product-info">
+        <div class="brand">OpenRouter</div>
+        <h3>OpenRouter API 充值</h3>
+        <div class="desc">全模型 API 统一接口，300+ 模型一个 Key 调用。支持 GPT-5、Claude Opus 4.6、Gemini 3.1、DeepSeek 等所有主流模型。</div>
+        <div class="tags"><span>300+ Models</span><span>GPT-5</span><span>Claude Opus</span><span>Gemini 3.1</span><span>DeepSeek</span><span>One API Key</span></div>
+        <div class="price-compare">
+          <div class="price-row old"><span class="label">市场汇率</span><span class="val">$100 = ¥800（1:8）</span></div>
+          <div class="price-row new"><span class="label">我们的汇率</span><span class="val">¥450<small> / $100</small></span></div>
+          <div class="price-save"><span>汇率 1:4.5 &middot; 省 44%</span></div>
+        </div>
+        <a class="product-btn" href="https://item.taobao.com" target="_blank" rel="noopener">Get OpenRouter Credits &rarr;</a>
       </div>
     </div>
   </div>
-
 </section>
 
-<!-- Process -->
-<section class="process">
-  <h2>购买流程</h2>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-title">选择产品</div>
-      <div class="step-desc">挑选你需要的 AI 工具</div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-title">淘宝下单</div>
-      <div class="step-desc">跳转淘宝店铺付款</div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-title">提供账号</div>
-      <div class="step-desc">联系客服提供充值账号</div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-title">充值到账</div>
-      <div class="step-desc">10分钟内完成充值</div>
+<!-- Why Us -->
+<section style="background:#fff">
+  <div class="section-label reveal">Why us</div>
+  <div class="section-title reveal">Not a hack. Just smart.</div>
+  <div class="section-desc reveal">批量充值 + 汇率优势 = 更低价格，完全正规</div>
+  <div class="features-grid">
+    <div class="feature reveal rd1"><div class="feature-icon">&#128274;</div><h4>官方正规渠道</h4><p>通过礼品卡/兑换码充值，无需你的密码，零风险。所有充值均可在官方后台验证。</p></div>
+    <div class="feature reveal rd2"><div class="feature-icon">&#9889;</div><h4>5 分钟到账</h4><p>下单后平均 5 分钟完成充值。高峰期最长不超过 1 小时，超时自动退款。</p></div>
+    <div class="feature reveal rd3"><div class="feature-icon">&#128176;</div><h4>价格优势</h4><p>批量充值 + 汇率差 + 渠道优势，用更少的钱享受完全一样的官方服务。</p></div>
+    <div class="feature reveal rd1"><div class="feature-icon">&#128737;</div><h4>淘宝售后保障</h4><p>淘宝平台交易，7天无理由退款，充值失败全额退。花呗、信用卡都支持。</p></div>
+    <div class="feature reveal rd2"><div class="feature-icon">&#129534;</div><h4>支持开发票</h4><p>企业用户可开具电子发票，方便报销。下单时备注即可。</p></div>
+    <div class="feature reveal rd3"><div class="feature-icon">&#128172;</div><h4>专属客服</h4><p>一对一客服在线支持，使用过程中有任何问题随时沟通解决。</p></div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section id="how">
+  <div class="steps-section reveal">
+    <div class="section-label">How it works</div>
+    <div class="section-title">4 steps. 5 minutes.</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h4>选择产品</h4><p>挑选你需要的 AI 工具会员</p></div>
+      <div class="step"><div class="step-num">2</div><h4>淘宝下单</h4><p>跳转淘宝店铺安全付款</p></div>
+      <div class="step"><div class="step-num">3</div><h4>提供账号</h4><p>联系客服提供充值信息</p></div>
+      <div class="step"><div class="step-num">4</div><h4>即刻到账</h4><p>5 分钟开始使用 AI</p></div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="faq">
-  <h2>常见问题</h2>
-  <div class="faq-item">
-    <div class="faq-q">为什么你的价格比官方便宜？</div>
-    <div class="faq-a">通过官方渠道批量充值 + 汇率优势，实现价格优惠。非共享账号、非破解，完全正规安全。</div>
+<section id="faq" style="background:#fff">
+  <div class="section-label reveal">FAQ</div>
+  <div class="section-title reveal">Questions? Answers.</div>
+  <div class="section-desc reveal"></div>
+  <div class="faq-list">
+    <div class="faq-item reveal"><div class="faq-q"><span>为什么你们的价格比官方便宜？</span><span class="icon">+</span></div><div class="faq-a">通过官方渠道批量充值 + 汇率优势实现价格优惠。非共享账号、非破解，完全正规安全。和官方自己充值的效果完全一样。</div></div>
+    <div class="faq-item reveal"><div class="faq-q"><span>充值后多久到账？</span><span class="icon">+</span></div><div class="faq-a">下单后平均 5 分钟完成充值。如遇高峰期，最长不超过 1 小时。超时未到账自动全额退款。</div></div>
+    <div class="faq-item reveal"><div class="faq-q"><span>需要提供密码吗？</span><span class="icon">+</span></div><div class="faq-a">不需要。ChatGPT 和 Claude 通过礼品卡/兑换码方式充值，Manus 通过官方积分直充。全程不接触你的密码。</div></div>
+    <div class="faq-item reveal"><div class="faq-q"><span>充值失败怎么办？</span><span class="icon">+</span></div><div class="faq-a">支持全额退款，零风险。任何问题都可以通过淘宝售后或联系客服解决。</div></div>
+    <div class="faq-item reveal"><div class="faq-q"><span>支持哪些支付方式？</span><span class="icon">+</span></div><div class="faq-a">淘宝平台交易，支持支付宝、花呗、信用卡、银行卡等所有主流支付方式。企业用户可开发票。</div></div>
   </div>
-  <div class="faq-item">
-    <div class="faq-q">充值后多久到账？</div>
-    <div class="faq-a">下单后 10 分钟内完成充值。如遇高峰期，最长不超过 1 小时。</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">需要提供密码吗？</div>
-    <div class="faq-a">不需要密码。ChatGPT 和 Claude 通过礼品卡/兑换码方式充值，Manus 通过官方积分直充。</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">充值失败怎么办？</div>
-    <div class="faq-a">支持全额退款。任何问题都可以通过淘宝售后或联系客服解决。</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">可以开发票吗？</div>
-    <div class="faq-a">支持开具电子发票，下单时备注即可。</div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="cta reveal">
+    <h2>Stop overpaying.<br>Start building.</h2>
+    <p>Same AI. Smarter price.</p>
+    <a href="#products" class="btn-blue">Get Started Now &rarr;</a>
+    <div style="margin-top:24px;font-size:16px;color:#999">或添加微信咨询：<span style="color:#fff;font-weight:700;background:rgba(255,255,255,.12);padding:6px 16px;border-radius:8px;margin-left:6px;letter-spacing:.5px">display1gl</span></div>
   </div>
 </section>
 
 <!-- Footer -->
-<footer class="footer">
-  <p>AI Tools Store &copy; 2026 | 官方渠道充值 安全可靠</p>
+<footer>
+  <p>AI Tools Store &copy; 2026 &middot; Official recharge channels &middot; Safe & reliable</p>
 </footer>
 
 <script>
-document.querySelectorAll('.faq-item').forEach(item=>{
-  item.querySelector('.faq-q').addEventListener('click',()=>{
-    item.classList.toggle('open');
-  });
-});
+document.querySelectorAll('.faq-item').forEach(i=>i.querySelector('.faq-q').addEventListener('click',()=>i.classList.toggle('open')));
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}}),{threshold:.06,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 
 </body>
